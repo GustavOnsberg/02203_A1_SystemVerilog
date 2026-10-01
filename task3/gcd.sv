@@ -71,7 +71,7 @@ module gcd (
             end
             S9 : begin
                 ack = 1'b1;
-                if (!req) next_state = S9;
+                if (!req) next_state = S0;
             end
             default : next_state = S0;
         endcase
