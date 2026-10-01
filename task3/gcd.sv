@@ -65,9 +65,9 @@ module gcd (
                 end
             end
             S5 : begin
-                if (reg_a > reg_b) next_reg_a = reg_a - reg_b;
-                else if (reg_a < reg_b) next_reg_b = reg_b - reg_a;
-                else next_state = S9;
+                if (reg_a == reg_b) next_state = S9;
+                else if (reg_a > reg_b) next_reg_a = reg_a - reg_b;
+                else next_reg_b = reg_b - reg_a;
             end
             S9 : begin
                 ack = 1'b1;
