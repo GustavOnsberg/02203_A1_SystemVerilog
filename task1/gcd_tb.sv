@@ -26,7 +26,7 @@ module gcd_tb ();
   // Instantiate gcd_top module and wire it up to internal signals used for testing
   gcd_top #(
       .n(2)
-  ) u_dut (
+  ) gcd (
       .clk  (clk),    // The clock signal.
       .reset(reset),  // Reset the module.
       .req  (req),    // Start computation.
@@ -41,13 +41,13 @@ module gcd_tb ();
     forever #(CLOCK / 2) clk = ~clk;
   end
 
-  // Provide test input to the entity in the testbench
-  localparam N_OPS = 5;
+  // Change numbers here if you what to run different tests
+  localparam N_OPS = 16;
 
   // Change numbers here if you what to run different tests
-  shortint unsigned a_ops[N_OPS - 1 : 0] = '{91, 32768, 49, 29232, 25};
-  shortint unsigned b_ops[N_OPS - 1 : 0] = '{63, 272, 98, 488, 5};
-  shortint unsigned c_ops[N_OPS - 1 : 0] = '{7, 16, 49, 8, 5};
+  shortint unsigned a_ops[N_OPS - 1 : 0] = '{91, 32768, 49, 29232, 25, 48, 18, 100, 17, 1071, 1024, 1, 60000, 65535, 65535, 1};
+  shortint unsigned b_ops[N_OPS - 1 : 0] = '{63, 272, 98, 488, 5, 18, 48, 100, 5, 462, 768, 1, 45000, 65535, 3, 65535};
+  shortint unsigned c_ops[N_OPS - 1 : 0] = '{7, 16, 49, 8, 5, 6, 6, 100, 1, 21, 256, 1, 15000, 65535, 3, 1};
 
   initial begin
     // Reset entity for some clock cycles
